@@ -442,12 +442,15 @@ Status importLocalFunctions(ImporterContext* ctx, ::ONNX_NAMESPACE::ModelProto c
 // Internal helper function used for ONNXRT-TRT EP to filter out DDS nodes
 bool isDDSOp(char const* op_name)
 {
+    return false;
+    /*
     auto is = [op_name](char const* name) { return std::strcmp(op_name, name) == 0; };
     if (is("NonMaxSuppression") || is("NonZero") || is("RoiAlign"))
     {
         return true;
     }
     return false;
+    */
 }
 
 std::pair<bool, ModelImporter::SubGraphSupportVector_t> ModelImporter::doSupportsModel(
